@@ -1,0 +1,20 @@
+﻿{
+  "name": "bairui-rong-agent-app",
+  "version": "1.0.0",
+  "description": "白帆AI智能体克隆体 - Web界面 + API",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/api/server.js",
+    "start": "node src/api/server.js",
+    "build": "echo Done",
+    "docker:build": "docker build -t bairui-rong-agent .",
+    "docker:run": "docker run -d -p 3001:3001 --name bairui-agent --restart unless-stopped bairui-rong-agent",
+    "docker-compose:up": "docker compose up -d --build"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "cors": "^2.8.5",
+    "marked": "^14.1.0"
+  }
+}
+
