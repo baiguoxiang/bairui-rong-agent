@@ -184,7 +184,7 @@ async function loadKnowledge(tab) {
         <h3>四大支柱</h3>
         <ul>${kb.platform.pillars.map(p => `<li><strong>${p.name}</strong>: ${p.items.join("、")}</li>`).join("")}</ul>
         <h3>延伸场景</h3>
-        <p>${kb.extendedScenarios.join("、")}</p>
+        <p>${kb.platform.extendedScenarios ? kb.platform.extendedScenarios.join("、") : "无"}</p>
       `,
       customers: `
         <h3>客户画像</h3>
@@ -326,6 +326,7 @@ function handleFiles(files) {
 
 // Initialize
 loadKnowledge("platform");
+
 
 
 
