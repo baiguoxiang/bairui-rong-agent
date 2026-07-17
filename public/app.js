@@ -1,4 +1,4 @@
-const API_BASE = "";
+ï»¿const API_BASE = "";
 
 // Tab switching
 document.querySelectorAll(".nav-btn").forEach(btn => {
@@ -52,7 +52,7 @@ async function sendMessage() {
   const loadingDiv = document.createElement("div");
   loadingDiv.className = "message bot-message";
   loadingDiv.id = "loadingMsg";
-  loadingDiv.innerHTML = `<div class="message-avatar">°×</div>
+  loadingDiv.innerHTML = `<div class="message-avatar">ç™½</div>
     <div class="message-body">
       <span class="typing-indicator">
         <span class="typing-dot"></span>
@@ -80,20 +80,20 @@ async function sendMessage() {
     if (data.model) {
       const modelEl = document.createElement("div");
       modelEl.style.cssText = "font-size:10px;color:var(--text-muted);margin-top:4px;";
-      modelEl.textContent = data.model === "fallback" ? "?? ±¾µØÖªÊ¶¿â" : "?? AIÄ£ĞÍ: agnes-2.0-flash";
+      modelEl.textContent = data.model === "fallback" ? "[æœ¬åœ°çŸ¥è¯†åº“]" : "[AIæ¨¡å‹: qwen-plus]";
       div.appendChild(modelEl);
     };
     // Show knowledge context
     if (data.context && data.context.length > 0) {
       const ctxEl = document.createElement("div");
       ctxEl.style.cssText = "font-size:11px;color:var(--text-muted);margin-top:4px;padding:4px 8px;background:rgba(108,92,231,0.1);border-radius:4px;display:inline-block;";
-      ctxEl.textContent = "?? ²Î¿¼: " + data.context.join(", ");
+      ctxEl.textContent = "[å‚è€ƒ]: " + data.context.join(", ");
       div.appendChild(ctxEl);
     };
   } catch (err) {
     const ld = document.getElementById("loadingMsg");
     if (ld) ld.remove();
-    appendMessage("bot", "±§Ç¸£¬ÔİÊ±ÎŞ·¨Á¬½Ó¡£ÇëÈ·±£ API ·şÎñÒÑÆô¶¯¡£");
+    appendMessage("bot", "æŠ±æ­‰ï¼Œæš‚æ—¶æ— æ³•è¿æ¥ã€‚è¯·ç¡®ä¿ API æœåŠ¡å·²å¯åŠ¨ã€‚");
   }
   
   sendBtn.disabled = false;
@@ -105,7 +105,7 @@ function appendMessage(type, text) {
   
   const avatar = document.createElement("div");
   avatar.className = "message-avatar";
-  avatar.textContent = type === "bot" ? "°×" : "Äã";
+  avatar.textContent = type === "bot" ? "ç™½" : "ä½ ";
   
   const body = document.createElement("div");
   body.className = "message-body";
@@ -171,7 +171,7 @@ async function loadProfile() {
     const res2 = await fetch(`${API_BASE}/api/knowledge`);
     const kb = await res2.json();
     honorsEl.innerHTML = kb.honors.map(h => 
-      `<div class="honor-item"><div class="honor-category">${h.category}</div><div style="color:var(--text-muted);font-size:12px;">${h.items.join("¡¢")}</div></div>`
+      `<div class="honor-item"><div class="honor-category">${h.category}</div><div style="color:var(--text-muted);font-size:12px;">${h.items.join("ã€")}</div></div>`
     ).join("");
     
     // Team
@@ -193,54 +193,54 @@ async function loadKnowledge(tab) {
     
     const contentMap = {
       platform: `
-        <h3>Æ½Ì¨¶¨Î»</h3>
+        <h3>å¹³å°å®šä½</h3>
         <p>${kb.platform.positioning}</p>
-        <h3>ËÄ´óÖ§Öù</h3>
-        <ul>${kb.platform.pillars.map(p => `<li><strong>${p.name}</strong>: ${p.items.join("¡¢")}</li>`).join("")}</ul>
-        <h3>ÑÓÉì³¡¾°</h3>
-        <p>${kb.extendedScenarios.join("¡¢")}</p>
+        <h3>å››å¤§æ”¯æŸ±</h3>
+        <ul>${kb.platform.pillars.map(p => `<li><strong>${p.name}</strong>: ${p.items.join("ã€")}</li>`).join("")}</ul>
+        <h3>å»¶ä¼¸åœºæ™¯</h3>
+        <p>${kb.extendedScenarios.join("ã€")}</p>
       `,
       customers: `
-        <h3>¿Í»§»­Ïñ</h3>
+        <h3>å®¢æˆ·ç”»åƒ</h3>
         ${kb.customers.map(c => `<p><strong>${c.segment}</strong></p><ul>${c.examples ? c.examples.map(e => `<li>${e}</li>`).join("") : ""}${c.traits ? c.traits.map(t => `<li>${t}</li>`).join("") : ""}</ul>`).join("")}
-        <h3>¿Í»§Í´µã</h3>
+        <h3>å®¢æˆ·ç—›ç‚¹</h3>
         <ul>${kb.painPoints.map(p => `<li>${p}</li>`).join("")}</ul>
       `,
       products: `
-        <h3>ºËĞÄÂôµã</h3>
+        <h3>æ ¸å¿ƒå–ç‚¹</h3>
         <ul>${kb.sellingPoints.map(s => `<li>${s}</li>`).join("")}</ul>
-        <h3>³É½»»°Êõ</h3>
+        <h3>æˆäº¤è¯æœ¯</h3>
         <ul>${kb.scripts.map(s => `<li><strong>[${s.trigger}]</strong> ${s.script}</li>`).join("")}</ul>
       `,
       scripts: `
-        <h3>³É½»»°Êõ¼¯</h3>
+        <h3>æˆäº¤è¯æœ¯é›†</h3>
         <ul>${kb.scripts.map(s => `<li><strong>[${s.trigger}]</strong> ${s.script}</li>`).join("")}</ul>
         <h3>FAQ</h3>
         <ul>${kb.faqs.map(f => `<li><strong>Q:</strong> ${f.q}<br><strong>A:</strong> ${f.a}</li>`).join("")}</ul>
       `,
       compliance: `
-        <h3>ºÏ¹æºìÏß</h3>
+        <h3>åˆè§„çº¢çº¿</h3>
         <ul>${kb.compliance.map(r => `<li>${r}</li>`).join("")}</ul>
-        <h3>×ÔÎÒÔ¼Êø</h3>
+        <h3>è‡ªæˆ‘çº¦æŸ</h3>
         <ul>${kb.constraints.map(c => `<li>${c}</li>`).join("")}</ul>
       `,
       brand: `
-        <h3>Æ·ÅÆ±í´ï¹æ·¶</h3>
-        <p><strong>Ö÷±í´ï:</strong> ${kb.brandGuidelines.mainExpression}</p>
-        <p><strong>ºËĞÄ´Ê:</strong> ${kb.brandGuidelines.keywords.join("¡¢")}</p>
-        <p><strong>¶ÔÕş¸®:</strong> ${kb.brandGuidelines.toGovernment}</p>
-        <p><strong>¶Ô´´ÒµÕß:</strong> ${kb.brandGuidelines.toEntrepreneurs}</p>
-        <p><strong>¶ÔÃÅµê:</strong> ${kb.brandGuidelines.toStores}</p>
-        <h3>ÓïÆø·ç¸ñ</h3>
-        <p><strong>»ùµ÷:</strong> ${kb.speakingStyle.tone.join("¡¢")}</p>
-        <p><strong>±í´ïÄ£Ê½:</strong></p>
+        <h3>å“ç‰Œè¡¨è¾¾è§„èŒƒ</h3>
+        <p><strong>ä¸»è¡¨è¾¾:</strong> ${kb.brandGuidelines.mainExpression}</p>
+        <p><strong>æ ¸å¿ƒè¯:</strong> ${kb.brandGuidelines.keywords.join("ã€")}</p>
+        <p><strong>å¯¹æ”¿åºœ:</strong> ${kb.brandGuidelines.toGovernment}</p>
+        <p><strong>å¯¹åˆ›ä¸šè€…:</strong> ${kb.brandGuidelines.toEntrepreneurs}</p>
+        <p><strong>å¯¹é—¨åº—:</strong> ${kb.brandGuidelines.toStores}</p>
+        <h3>è¯­æ°”é£æ ¼</h3>
+        <p><strong>åŸºè°ƒ:</strong> ${kb.speakingStyle.tone.join("ã€")}</p>
+        <p><strong>è¡¨è¾¾æ¨¡å¼:</strong></p>
         <ul>${kb.speakingStyle.patterns.map(p => `<li>${p}</li>`).join("")}</ul>
       `,
     };
     
-    contentEl.innerHTML = contentMap[tab] || "<p>ÔİÎŞÄÚÈİ</p>";
+    contentEl.innerHTML = contentMap[tab] || "<p>æš‚æ— å†…å®¹</p>";
   } catch (err) {
-    contentEl.innerHTML = "<p>¼ÓÔØÊ§°Ü£¬ÇëÈ·±£ API ·şÎñÒÑÆô¶¯¡£</p>";
+    contentEl.innerHTML = "<p>åŠ è½½å¤±è´¥ï¼Œè¯·ç¡®ä¿ API æœåŠ¡å·²å¯åŠ¨ã€‚</p>";
   }
 }
 
@@ -272,13 +272,13 @@ async function checkCompliance() {
     
     const resultEl = document.getElementById("complianceResult");
     if (data.isClean) {
-      resultEl.innerHTML = `<div class="compliance-result compliance-clean">? ºÏ¹æ¼ì²éÍ¨¹ı£¬Î´·¢ÏÖÎ¥¹æÄÚÈİ¡£</div>`;
+      resultEl.innerHTML = `<div class="compliance-result compliance-clean">? åˆè§„æ£€æŸ¥é€šè¿‡ï¼Œæœªå‘ç°è¿è§„å†…å®¹ã€‚</div>`;
     } else {
       const violations = data.violations.map(v => `<li>${v.keyword}</li>`).join("");
-      resultEl.innerHTML = `<div class="compliance-result compliance-violation">?? ·¢ÏÖ ${data.violations.length} ´¦ÒÉËÆÎ¥¹æ£º<ul>${violations}</ul></div>`;
+      resultEl.innerHTML = `<div class="compliance-result compliance-violation">?? å‘ç° ${data.violations.length} å¤„ç–‘ä¼¼è¿è§„ï¼š<ul>${violations}</ul></div>`;
     }
   } catch (err) {
-    document.getElementById("complianceResult").innerHTML = "<p style=\"color:var(--danger);\">ÇëÇóÊ§°Ü</p>";
+    document.getElementById("complianceResult").innerHTML = "<p style=\"color:var(--danger);\">è¯·æ±‚å¤±è´¥</p>";
   }
 }
 
@@ -292,11 +292,11 @@ async function downloadPrompt() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "°×·«AIÏµÍ³ÌáÊ¾´Ê.md";
+    a.download = "ç™½å¸†AIç³»ç»Ÿæç¤ºè¯.md";
     a.click();
     URL.revokeObjectURL(url);
   } catch (err) {
-    alert("»ñÈ¡ÏµÍ³ÌáÊ¾´ÊÊ§°Ü");
+    alert("è·å–ç³»ç»Ÿæç¤ºè¯å¤±è´¥");
   }
 }
 
@@ -331,15 +331,17 @@ function handleFiles(files) {
   if (files.length > 0) {
     const names = Array.from(files).map(f => f.name).join(", ");
     uploadZone.innerHTML = `
-      <p style="color:var(--success);">? ÒÑÑ¡Ôñ ${files.length} ¸öÎÄ¼ş</p>
+      <p style="color:var(--success);">? å·²é€‰æ‹© ${files.length} ä¸ªæ–‡ä»¶</p>
       <p style="font-size:12px;color:var(--text-muted);margin-top:8px;">${names}</p>
-      <p style="font-size:11px;color:var(--text-muted);margin-top:12px;">ÌáÊ¾: ÓïÒôËØ²Ä½«ÓÃÓÚÔöÇ¿¿ËÂ¡ÌåµÄÉùÒôÌØÕ÷Ê¶±ğ</p>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:12px;">æç¤º: è¯­éŸ³ç´ æå°†ç”¨äºå¢å¼ºå…‹éš†ä½“çš„å£°éŸ³ç‰¹å¾è¯†åˆ«</p>
     `;
   }
 }
 
 // Initialize
 loadKnowledge("platform");
+
+
 
 
 
