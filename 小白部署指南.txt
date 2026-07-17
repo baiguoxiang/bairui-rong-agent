@@ -1,0 +1,37 @@
+﻿========================================================
+   小白部署指南 - 白帆AI智能体克隆体
+========================================================
+
+✅ 第一步：GitHub 仓库已创建
+   地址：https://github.com/baiguoxiang/bairui-rong-agent
+   （代码已上传完毕）
+
+✅ 第二步：部署到 Railway（3个鼠标点击）
+
+   1. 打开 https://railway.app
+   2. 用 GitHub 账号登录（点 "Login with GitHub"）
+   3. 点 "New Project" → "Deploy from GitHub repo"
+   4. 找到并选择 "bairui-rong-agent" 这个仓库
+   5. 点 "Deploy"
+   6. 部署开始后，点左侧 "Variables"
+   7. 点 "New Variable"，添加：
+      - 名字: DASHSCOPE_API_KEY
+      - 值: sk-ws-H.EDPRHEY.d6Hk.MEUCIHUI0VeeOrfEMJCLTqlI7o2UJY1Z5m-o3w-HuDxl_cy_AiEAmY_bFVmSPQ_PV3qLq_FTsTiQ_QPLYe4DhnnE96NSfcQ
+   8. 再添加一个：
+      - 名字: PORT
+      - 值: 3001
+   9. 保存后 Railway 会自动重新部署
+   10. 等部署完成后，点左侧 "Deployments"
+       找到最新的部署记录，点右边的 "..." → "Copy public URL"
+   
+   🎉 恭喜！你得到了一个可以分享给别人的链接！
+
+========================================================
+   本地测试（部署前验证）
+========================================================
+
+   在项目文件夹里双击 start.bat
+   浏览器打开 http://localhost:3001
+   试试跟"白帆"聊天！
+
+========================================================
