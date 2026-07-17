@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>白帆AI智能体 - 一键部署</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            padding: 40px;
+        }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.2em; opacity: 0.9; margin-bottom: 40px; }
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 10px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+        .steps {
+            text-align: left;
+            margin-top: 40px;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        .steps h3 { margin-bottom: 15px; }
+        .steps ol { padding-left: 20px; line-height: 2; }
+        .code {
+            background: rgba(0,0,0,0.3);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+        .footer { margin-top: 30px; opacity: 0.7; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 白帆AI智能体</h1>
+        <p class="subtitle">一键部署到你的专属 AI 客服</p>
+        
+        <a href="https://railway.app/new/template?github.com/baiguoxiang/bairui-rong-agent" 
+           class="btn" target="_blank">
+            🚀 一键部署到 Railway
+        </a>
+        
+        <div class="steps">
+            <h3>📋 部署步骤（只需 3 分钟）</h3>
+            <ol>
+                <li>点击上方按钮，用 GitHub 账号登录 Railway</li>
+                <li>添加环境变量 <span class="code">DASHSCOPE_API_KEY</span>（你的阿里云 API Key）</li>
+                <li>等待 1-2 分钟，获得你的专属链接！</li>
+            </ol>
+        </div>
+        
+        <p class="footer">
+            GitHub 仓库: baiguoxiang/bairui-rong-agent<br>
+            本地测试: http://localhost:3001
+        </p>
+    </div>
+</body>
+</html>
