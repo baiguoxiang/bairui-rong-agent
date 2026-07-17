@@ -76,20 +76,6 @@ async function sendMessage() {
     if (ld) ld.remove();
     
     appendMessage("bot", data.reply);
-    // Show model badge
-    if (data.model) {
-      const modelEl = document.createElement("div");
-      modelEl.style.cssText = "font-size:10px;color:var(--text-muted);margin-top:4px;";
-      modelEl.textContent = data.model === "fallback" ? "[本地知识库]" : "[AI模型: qwen-plus]";
-      div.appendChild(modelEl);
-    };
-    // Show knowledge context
-    if (data.context && data.context.length > 0) {
-      const ctxEl = document.createElement("div");
-      ctxEl.style.cssText = "font-size:11px;color:var(--text-muted);margin-top:4px;padding:4px 8px;background:rgba(108,92,231,0.1);border-radius:4px;display:inline-block;";
-      ctxEl.textContent = "[参考]: " + data.context.join(", ");
-      div.appendChild(ctxEl);
-    };
   } catch (err) {
     const ld = document.getElementById("loadingMsg");
     if (ld) ld.remove();
@@ -340,6 +326,7 @@ function handleFiles(files) {
 
 // Initialize
 loadKnowledge("platform");
+
 
 
 
