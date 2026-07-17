@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>白帆 AI 智能体 — 潘多拉之礼</title>
+  <meta name="description" content="白帆AI智能体克隆体 - 潘多拉之礼发起人，女性AI轻创业赋能平台">
+  <meta name="theme-color" content="#6C5CE7">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%236C5CE7'/><stop offset='100%' style='stop-color:%2300CEC9'/></linearGradient></defs><rect width='100' height='100' rx='20' fill='url(%23g)'/><text x='50' y='70' text-anchor='middle' fill='white' font-size='50' font-family='sans-serif' font-weight='bold'>白</text></svg>">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="avatar">白</div>
+        <div class="sidebar-title">
+          <h2>白帆 AI</h2>
+          <span class="subtitle">潘多拉之礼 · 发起人</span>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="nav-btn active" data-tab="chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          对话
+        </button>
+        <button class="nav-btn" data-tab="profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          个人档案
+        </button>
+        <button class="nav-btn" data-tab="knowledge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          知识库
+        </button>
+        <button class="nav-btn" data-tab="tools">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          工具箱
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="status-indicator">
+          <span class="status-dot"></span>
+          <span>在线</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Chat Tab -->
+      <section id="tab-chat" class="tab-panel active">
+        <div class="chat-header">
+          <h1>与白帆对话</h1>
+          <p class="chat-desc">我是白帆，潘多拉之礼发起人。问我任何问题。</p>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot-message">
+            <div class="message-avatar">白</div>
+            <div class="message-body">
+              <p>你好，我是白帆 👋</p>
+              <p>潘多拉之礼的发起人。我用 AI 工具、课程陪跑和社群资源，帮助女性降低创业门槛，走出一条可持续的个人事业路径。</p>
+              <p>你可以问我关于：</p>
+              <ul>
+                <li>潘多拉平台和产品</li>
+                <li>OPC 一人公司系统</li>
+                <li>AI 轻创业和女性赋能</li>
+                <li>我的个人经历和团队</li>
+                <li>合规表达和决策逻辑</li>
+              </ul>
+              <p>直接说你想了解什么就好。</p>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <textarea id="chatInput" placeholder="输入你的问题..." rows="1"></textarea>
+          <button id="sendBtn" class="send-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- Profile Tab -->
+      <section id="tab-profile" class="tab-panel">
+        <div class="profile-header">
+          <div class="profile-avatar">白</div>
+          <div class="profile-info">
+            <h1>白帆</h1>
+            <p class="profile-tagline">潘多拉之礼发起人 · 女性AI轻创业赋能推动者</p>
+          </div>
+        </div>
+        <div class="profile-grid">
+          <div class="profile-card">
+            <h3>🎯 核心使命</h3>
+            <p>帮助 3000 万女性实现 AI 轻创业成功。用 AI 工具降低创业门槛，用真实产品/服务/陪跑/数据证明价值。</p>
+          </div>
+          <div class="profile-card">
+            <h3>📅 履历时间线</h3>
+            <div class="timeline" id="timeline"></div>
+          </div>
+          <div class="profile-card">
+            <h3>💪 核心能力</h3>
+            <div id="competencies"></div>
+          </div>
+          <div class="profile-card">
+            <h3>🏆 荣誉资质</h3>
+            <div id="honors"></div>
+          </div>
+          <div class="profile-card">
+            <h3>👥 团队成员</h3>
+            <div id="team"></div>
+          </div>
+          <div class="profile-card">
+            <h3>🤝 社会资源</h3>
+            <p>阳光公益组委会荣誉会长 · 中国慈善基金会副主席 · 中华菁英会发起人 · 大中华海内外华人联谊会主席</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Knowledge Tab -->
+      <section id="tab-knowledge" class="tab-panel">
+        <div class="knowledge-header">
+          <h1>潘多拉知识库</h1>
+          <p>企业定位、产品体系、客户画像、成交话术、合规规范</p>
+        </div>
+        <div class="knowledge-tabs">
+          <button class="k-tab-btn active" data-ktab="platform">平台</button>
+          <button class="k-tab-btn" data-ktab="customers">客户</button>
+          <button class="k-tab-btn" data-ktab="products">产品</button>
+          <button class="k-tab-btn" data-ktab="scripts">话术</button>
+          <button class="k-tab-btn" data-ktab="compliance">合规</button>
+          <button class="k-tab-btn" data-ktab="brand">品牌</button>
+        </div>
+        <div class="knowledge-content" id="knowledgeContent"></div>
+      </section>
+
+      <!-- Tools Tab -->
+      <section id="tab-tools" class="tab-panel">
+        <div class="tools-header">
+          <h1>工具箱</h1>
+          <p>合规检查、FAQ查询、系统提示词下载</p>
+        </div>
+        <div class="tools-grid">
+          <div class="tool-card">
+            <h3>🔍 合规检查</h3>
+            <p>检查文案是否触碰合规红线</p>
+            <textarea id="complianceInput" placeholder="粘贴你的文案到这里..." rows="4"></textarea>
+            <button class="tool-btn" onclick="checkCompliance()">检查合规</button>
+            <div id="complianceResult"></div>
+          </div>
+          <div class="tool-card">
+            <h3>❓ FAQ 速查</h3>
+            <p>常见问题标准答案</p>
+            <div id="faqList"></div>
+          </div>
+          <div class="tool-card">
+            <h3>📋 系统提示词</h3>
+            <p>获取完整的白帆AI人格配置</p>
+            <button class="tool-btn" onclick="downloadPrompt()">下载系统提示词</button>
+            <div id="promptPreview"></div>
+          </div>
+          <div class="tool-card">
+            <h3>🎙️ 语音素材</h3>
+            <p>上传白帆的声音和视频素材，增强克隆体表现力</p>
+            <div class="upload-zone" id="uploadZone">
+              <p>拖拽文件到此处，或点击上传</p>
+              <p class="upload-hint">支持 MP4, MOV, MP3, WAV 格式</p>
+              <input type="file" id="mediaUpload" accept="video/*,audio/*" multiple>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
